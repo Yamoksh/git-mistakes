@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/app.js"> </script> 
+	</head>
+	
+	<body>
+		<h2> Fixing Git Mistakes </h2>
+		<hr/>
+		<ol>
+			<li> 
+				<b>Rename last commit</b>
+				<ul>
+				<li> let's commit: "git commit -m "Add index.htmll"</li>
+				<li> Now we want to change the commit message: git commit --amend -m "Add index.html" </li>
+				<li> Check last commit log: "git log --oneline"
+				</ul>
+				
+			</li></br>
+			
+			
+			<li>
+				<b>Add new changes to last commit</b>
+				<ul>
+				 <li> Make changes and add untracked file : "git add -A"</li>
+				 <li> Add new changes to last commit: git commit --amend -m "Adding index.html and app.js" </li> 
+				 <li> Check the last commit: "git log --oneline"
+				</ul>
+			</li></br>
+			
+			
+			<li>
+			 <b>Git remove file from staging before commiting </b>
+			 	<ul>
+			 	  <li> Let's add new file: "touch lib.js" </li>
+			 	  <li> Add this file to staging area: "git add lib.js" </li>
+			 	  <li> Check the status of file "git status" and check the head position by "git log --oneline"</li>
+			 	  	<ul> <li> Ex: 6cdfc0e (HEAD -> master) Adding index.html and app.js <br/>
+f86d914 (origin/master, origin/HEAD) Initial commi" </li></ul>
+			 	  <li> Now reset head : "git reset HEAD lib.js"
+			 	  <li> Check the status and remove the file.
+			 	</ul>
+			</li></br>
+			
+			 	
+			
+		<ol>
+	</body>
+</html>
