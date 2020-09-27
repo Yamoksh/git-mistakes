@@ -18,6 +18,7 @@
 			</li></br>
 			
 			
+			
 			<li>
 				<b>Add new changes to last commit</b>
 				<ul>
@@ -26,6 +27,7 @@
 				 <li> Check the last commit: "git log --oneline"
 				</ul>
 			</li></br>
+			
 			
 			
 			<li>
@@ -42,7 +44,72 @@ f86d914 (origin/master, origin/HEAD) Initial commi" </li></ul>
 			</li></br>
 			
 			 	
+			 	
+			<li> 
+			  <b> Git remove changes from a commit before pushing </b>
+			  <ul>
+			  	<li> Let's add new file app.js and add some lines </li>
+			  	<li> Add changes to stage area and do a commit: "git add -A" && "git commit -m "Adds a desc to index"" </li>
+			  	<li> Now check the diff from origin : "git diff origin/master HEAD" </li>
+			  	<li> Check git log : "git log --oneline"
+			  		<ul> <li> It should show something like this:
+			  			<ul><li> 93a6379 (HEAD -> master) Adds a desc to index </li>
+<li> cbbc0cb Adding index.html and app.js </li>
+<li> f86d914 (origin/master, origin/HEAD) Initial commit</li> </ul></li>
+					</ul> 
+				</li>
+				
+				<li> Now we have two ways to remove changes from a commit:
+					<ol>
+						<li> Reset head by one commit : "git reset HEAD~1" </li>
+						<li> Or Reset head by commit ID : "git reset 93a6379" </li>
+					</ol>
+				</li>
+			   </ul>	
+			</li></br>
 			
-		<ol>
+			
+		    <li>
+		    	<b>Git different reset options - soft/mixed/hard</b><br/>
+		    	<b> Soft Reset -  </b> It undo the changes from the given commit and update the state of changed files into staging area. Such as:
+		    	<ul>
+		    		<li> Let's add a file and commit : "git add myScript.js" && "git commit -m 'take 1'" </li>
+		    		<li> Check log status : "git log --oneline" 
+			    		<ul>
+			    			<li> 502381c (HEAD -> master) take 1 <br/>
+cbbc0cb Adding index.html and app.js <br/>
+f86d914 (origin/master, origin/HEAD) Initial commit </li>
+			    		</ul>
+			    	</li>
+			    	
+			    	<li> Now let's do soft reset : "git reset --soft HEAD~1" </li>
+			    	<li> Again chek git log status: "git log --oneline"
+			    		<ul><li> 
+			    			502381c (HEAD -> master) take 1
+cbbc0cb Adding index.html and app.js</br>
+f86d914 (origin/master, origin/HEAD) Initial commit
+			    		</li></ul>
+			    	</li>
+			    	<li> Now undo files are in staging area. Check status: "git status" 
+			    		<ul><li> 
+			    			On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+<br/>
+Changes to be committed:<br/>
+  (use "git restore --staged <file>..." to unstage)
+	new file:   myScript.js</li></ul>
+				</li>
+		    	</ul><br/>
+		    	
+		    	<b> Mixed Reset - </b> Reset changes fis hardorm commit and unlike soft reset, It also remove commit changes from staging area: <br/>
+		    	
+		    	<ul><li>git reset --mixed HEAD~1</li></ul>
+		    	</br>
+		    	
+		    	<b> Hard Reset - </b> This option we rarely use in scenario where we want to completely remove commit's changes from the working directory.<br/>
+		    	( This option is not advisable because undo of this command is complicated: <a href="https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1"> How to undo git hard reset</a>)
+		    </li></br>
+		</ol>
 	</body>
 </html>
